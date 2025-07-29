@@ -85,14 +85,71 @@ def gen_save_folder(max_size=200):
 
 def export_mesh(mesh, save_folder, textured=False, type='glb'):
     if textured:
-        path = os.path.join(save_folder, f'textured_mesh.{type}')
+        mesh_name = f'textured_mesh.{type}'
+        path = os.path.join(save_folder, mesh_name)
     else:
-        path = os.path.join(save_folder, f'white_mesh.{type}')
+        mesh_name = f'white_mesh.{type}'
+        path = os.path.join(save_folder, mesh_name)
     if type not in ['glb', 'obj']:
         mesh.export(path)
     else:
         mesh.export(path, include_normals=textured)
-    return path
+    
+    # Return mesh information
+    mesh_info = {
+        'mesh_name': mesh_name,
+        'mesh_format': type,
+        'mesh_path': path,
+        'textured': textured
+    }
+    return path, mesh_info
+
+
+# Global variables to store generation results for notebook access
+LAST_GENERATION_STATS = None
+GENERATION_HISTORY = []
+
+def store_generation_results(stats):
+    """Store generation results globally for notebook access"""
+    global LAST_GENERATION_STATS, GENERATION_HISTORY
+    LAST_GENERATION_STATS = stats.copy()
+    GENERATION_HISTORY.append(stats.copy())
+    
+    # Keep only last 10 generations to avoid memory issues
+    if len(GENERATION_HISTORY) > 10:
+        GENERATION_HISTORY.pop(0)
+
+def get_last_generation():
+    """Get the last generation stats"""
+    return LAST_GENERATION_STATS
+
+def get_generation_history():
+    """Get all generation history"""
+    return GENERATION_HISTORY
+
+def format_generation_summary(stats):
+    """Format the generation information for display"""
+    summary = []
+    
+    # Add generation info
+    if 'generation_info' in stats:
+        info = stats['generation_info']
+        summary.append("=== GENERATION SUMMARY ===")
+        summary.append(f"Prompt: {info.get('prompt', 'N/A')}")
+        summary.append(f"Folder Name: {info.get('folder_name', 'N/A')}")
+        summary.append(f"Folder Directory: {info.get('folder_directory', 'N/A')}")
+        
+        if 'white_mesh' in info:
+            white_mesh = info['white_mesh']
+            summary.append(f"White Mesh: {white_mesh.get('mesh_name', 'N/A')} ({white_mesh.get('mesh_format', 'N/A')})")
+            
+        if 'textured_mesh' in info:
+            textured_mesh = info['textured_mesh']
+            summary.append(f"Textured Mesh: {textured_mesh.get('mesh_name', 'N/A')} ({textured_mesh.get('mesh_format', 'N/A')})")
+        
+        summary.append("=" * 30)
+    
+    return "\n".join(summary)
 
 
 def randomize_seed_fn(seed: int, randomize_seed: bool) -> int:
@@ -172,6 +229,7 @@ def _gen_shape(
     octree_resolution = int(octree_resolution)
     if caption: print('prompt is', caption)
     save_folder = gen_save_folder()
+    folder_name = os.path.basename(save_folder)
     stats = {
         'model': {
             'shapegen': f'{args.model_path}/{args.subfolder}',
@@ -185,6 +243,11 @@ def _gen_shape(
             'octree_resolution': octree_resolution,
             'check_box_rembg': check_box_rembg,
             'num_chunks': num_chunks,
+        },
+        'generation_info': {
+            'prompt': caption,
+            'folder_name': folder_name,
+            'folder_directory': save_folder,
         }
     }
     time_meta = {}
@@ -275,7 +338,8 @@ def generation_all(
         num_chunks=num_chunks,
         randomize_seed=randomize_seed,
     )
-    path = export_mesh(mesh, save_folder, textured=False)
+    path, white_mesh_info = export_mesh(mesh, save_folder, textured=False)
+    stats['generation_info']['white_mesh'] = white_mesh_info
 
     # tmp_time = time.time()
     # mesh = floater_remove_worker(mesh)
@@ -295,9 +359,17 @@ def generation_all(
     stats['time']['total'] = time.time() - start_time_0
 
     textured_mesh.metadata['extras'] = stats
-    path_textured = export_mesh(textured_mesh, save_folder, textured=True)
+    path_textured, textured_mesh_info = export_mesh(textured_mesh, save_folder, textured=True)
+    stats['generation_info']['textured_mesh'] = textured_mesh_info
     model_viewer_html_textured = build_model_viewer_html(save_folder, height=HTML_HEIGHT, width=HTML_WIDTH,
                                                          textured=True)
+    
+    # Print generation summary
+    print(format_generation_summary(stats))
+    
+    # Store results globally for notebook access
+    store_generation_results(stats)
+    
     if args.low_vram_mode:
         torch.cuda.empty_cache()
     return (
@@ -340,7 +412,8 @@ def shape_generation(
         num_chunks=num_chunks,
         randomize_seed=randomize_seed,
     )
-    path = export_mesh(mesh, save_folder, textured=False)
+    path, white_mesh_info = export_mesh(mesh, save_folder, textured=False)
+    stats['generation_info']['white_mesh'] = white_mesh_info
 
     # tmp_time = time.time()
     # mesh = floater_remove_worker(mesh)
@@ -360,9 +433,17 @@ def shape_generation(
     stats['time']['total'] = time.time() - start_time_0
 
     textured_mesh.metadata['extras'] = stats
-    path_textured = export_mesh(textured_mesh, save_folder, textured=True)
+    path_textured, textured_mesh_info = export_mesh(textured_mesh, save_folder, textured=True)
+    stats['generation_info']['textured_mesh'] = textured_mesh_info
     model_viewer_html_textured = build_model_viewer_html(save_folder, height=HTML_HEIGHT, width=HTML_WIDTH,
                                                          textured=True)
+    
+    # Print generation summary
+    print(format_generation_summary(stats))
+    
+    # Store results globally for notebook access
+    store_generation_results(stats)
+    
     torch.cuda.empty_cache()
     return (
         gr.update(value=path),
@@ -407,8 +488,16 @@ def shape_generation(
     stats['time']['total'] = time.time() - start_time_0
     mesh.metadata['extras'] = stats
 
-    path = export_mesh(mesh, save_folder, textured=False)
+    path, white_mesh_info = export_mesh(mesh, save_folder, textured=False)
+    stats['generation_info']['white_mesh'] = white_mesh_info
     model_viewer_html = build_model_viewer_html(save_folder, height=HTML_HEIGHT, width=HTML_WIDTH)
+    
+    # Print generation summary
+    print(format_generation_summary(stats))
+    
+    # Store results globally for notebook access
+    store_generation_results(stats)
+    
     if args.low_vram_mode:
         torch.cuda.empty_cache()
     return (
@@ -673,11 +762,11 @@ def build_app():
             if export_texture:
                 mesh = trimesh.load(file_out2)
                 save_folder = gen_save_folder()
-                path = export_mesh(mesh, save_folder, textured=True, type=file_type)
+                path, mesh_info = export_mesh(mesh, save_folder, textured=True, type=file_type)
 
                 # for preview
                 save_folder = gen_save_folder()
-                _ = export_mesh(mesh, save_folder, textured=True)
+                _, _ = export_mesh(mesh, save_folder, textured=True)
                 model_viewer_html = build_model_viewer_html(save_folder, height=HTML_HEIGHT, width=HTML_WIDTH,
                                                             textured=True)
             else:
@@ -687,14 +776,15 @@ def build_app():
                 if reduce_face:
                     mesh = face_reduce_worker(mesh, target_face_num)
                 save_folder = gen_save_folder()
-                path = export_mesh(mesh, save_folder, textured=False, type=file_type)
+                path, mesh_info = export_mesh(mesh, save_folder, textured=False, type=file_type)
 
                 # for preview
                 save_folder = gen_save_folder()
-                _ = export_mesh(mesh, save_folder, textured=False)
+                _, _ = export_mesh(mesh, save_folder, textured=False)
                 model_viewer_html = build_model_viewer_html(save_folder, height=HTML_HEIGHT, width=HTML_WIDTH,
                                                             textured=False)
             print(f'export to {path}')
+            print(f'Mesh info: {mesh_info}')
             return model_viewer_html, gr.update(value=path, interactive=True)
 
         confirm_export.click(
