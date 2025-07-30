@@ -23,6 +23,22 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
   - `Hunyuan3D-2mv` (Multi-view optimized)
   - `Hunyuan3D-2-turbo` (Ultra-fast generation)
 
+
+## � Gen Samples
+*This section showcases real-world usage
+
+**Video 1: Master Chief from Halo in battle pose**
+
+https://github.com/user-attachments/assets/c3aad4af-262c-49ce-86e9-5d508c8d4249
+
+*Demonstrates real-time generation from text prompt to finished 3D model*
+
+**Video 2: Prompt - A Knight Standing confidently with a long sword **
+
+https://github.com/user-attachments/assets/438e57ef-49ba-490b-8198-93129ef42ce8
+
+*Comparing multiple generations and memory optimization*
+
 ### **Technical Advantages**
 | Feature | Hunyuan3D-2GP | Competitors |
 |---------|---------------|-------------|
@@ -70,21 +86,6 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
 - **Model Offloading**: Automatic GPU memory optimization
 - **Batch Processing**: Efficient handling of multiple generations
 - **Low-VRAM Mode**: Special mode for 6GB+ GPUs
-
-## � Gen Samples
-*This section showcases real-world usage
-
-**Video 1: Master Chief from Halo in battle pose**
-
-https://github.com/user-attachments/assets/c3aad4af-262c-49ce-86e9-5d508c8d4249
-
-*Demonstrates real-time generation from text prompt to finished 3D model*
-
-**Video 2: Prompt - A Knight Standing confidently with a long sword **
-
-https://github.com/user-attachments/assets/438e57ef-49ba-490b-8198-93129ef42ce8
-
-*Comparing multiple generations and memory optimization*
 
 ## 📋 Prerequisites
 
@@ -262,16 +263,6 @@ This project is licensed under the **TENCENT HUNYUAN NON-COMMERCIAL LICENSE AGRE
 ### **🔗 Quick Links**
 - **Original Repository**: [Tencent/Hunyuan3D-2](https://github.com/tencent/Hunyuan3D-2)
 - **GPU-Poor Version**: [DeepBeepMeep/Hunyuan3D-2GP](https://github.com/deepbeepmeep/Hunyuan3D-2GP)
-- **Documentation**: [Hunyuan3D Docs](https://hunyuan3d.readthedocs.io/)
-- **Paper**: [Hunyuan3D 2.0 Technical Report](https://arxiv.org/abs/2312.xxxxx)
-
-### **💬 Community Support**
-- **GitHub Discussions**: Ask questions and share results
-- **Discord Server**: Real-time community chat
-- **Reddit**: r/Hunyuan3D for discussions
-- **YouTube**: Tutorial videos and showcases
-
----
 
 <div align="center">
 
