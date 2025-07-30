@@ -74,16 +74,16 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
 ## � Gen Samples
 *This section showcases real-world usage
 
-**Video 1: e**
-```markdown
-![Master Chief](https://github.com/user-attachments/assets/c3aad4af-262c-49ce-86e9-5d508c8d4249)
-```
+**Video 1: Master Chief from Halo in battle pose**
+
+https://github.com/user-attachments/assets/c3aad4af-262c-49ce-86e9-5d508c8d4249
+
 *Demonstrates real-time generation from text prompt to finished 3D model*
 
 **Video 2: Prompt - A Knight Standing confidently with a long sword **
-```markdown
-!(https://github.com/user-attachments/assets/438e57ef-49ba-490b-8198-93129ef42ce8)
-```
+
+https://github.com/user-attachments/assets/438e57ef-49ba-490b-8198-93129ef42ce8
+
 *Comparing multiple generations and memory optimization*
 
 ## 📋 Prerequisites
