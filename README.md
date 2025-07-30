@@ -74,94 +74,17 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
 ## � Gen Samples
 *This section showcases real-world usage
 
-**Video 1: Text-to-3D Generation in Under 30 Seconds**
+**Video 1: e**
 ```markdown
-<!-- Replace VIDEO_ID_1 with your actual YouTube video ID -->
-[![Speed Test Demo](https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_1)
+[![Master Chief](https://github.com/user-attachments/assets/c3aad4af-262c-49ce-86e9-5d508c8d4249)
 ```
 *Demonstrates real-time generation from text prompt to finished 3D model*
 
-**Video 2: **
+**Video 2: Prompt - A Knight Standing confidently with a long sword **
 ```markdown
-<!-- Replace VIDEO_ID_2 with your actual YouTube video ID -->
-[![Batch Performance](https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_2)
+[!(https://github.com/user-attachments/assets/438e57ef-49ba-490b-8198-93129ef42ce8)
 ```
 *Comparing multiple generations and memory optimization*
-
-**Video 3: 6GB GPU Memory Optimization**
-```markdown
-<!-- Replace VIDEO_ID_3 with your actual YouTube video ID -->
-[![Memory Optimization](https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_3)
-```
-*Low-VRAM techniques and performance tips*
-
-#### **🎨 Quality Showcases**
-
-**Video 4: High-Fidelity Mesh Examples**
-```markdown
-<!-- Replace VIDEO_ID_4 with your actual YouTube video ID -->
-[![Quality Demo](https://img.youtube.com/vi/VIDEO_ID_4/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_4)
-```
-*Showcase of detailed mesh generation and topology*
-
-**Video 5: Texture Quality Comparison**
-```markdown
-<!-- Replace VIDEO_ID_5 with your actual YouTube video ID -->
-[![Texture Comparison](https://img.youtube.com/vi/VIDEO_ID_5/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_5)
-```
-*Side-by-side comparison with other 3D generation models*
-
-**Video 6: Multi-view Generation Accuracy**
-```markdown
-<!-- Replace VIDEO_ID_6 with your actual YouTube video ID -->
-[![Multi-view Demo](https://img.youtube.com/vi/VIDEO_ID_6/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_6)
-```
-*Using multiple reference images for better reconstruction*
-
-#### **🔧 Workflow Demonstrations**
-
-**Video 7: Complete Setup and First Generation**
-```markdown
-<!-- Replace VIDEO_ID_7 with your actual YouTube video ID -->
-[![Setup Tutorial](https://img.youtube.com/vi/VIDEO_ID_7/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_7)
-```
-*Step-by-step installation and first model generation*
-
-**Video 8: Advanced Analysis Features**
-```markdown
-<!-- Replace VIDEO_ID_8 with your actual YouTube video ID -->
-[![Analysis Features](https://img.youtube.com/vi/VIDEO_ID_8/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_8)
-```
-*Using notebook analysis tools and visualization*
-
-**Video 9: Export and 3D Printing Prep**
-```markdown
-<!-- Replace VIDEO_ID_9 with your actual YouTube video ID -->
-[![Export Tutorial](https://img.youtube.com/vi/VIDEO_ID_9/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_9)
-```
-*Preparing models for 3D printing and other applications*
-
-#### **💡 Creative Applications**
-
-**Video 10: Game Asset Pipeline**
-```markdown
-<!-- Replace VIDEO_ID_10 with your actual YouTube video ID -->
-[![Game Assets](https://img.youtube.com/vi/VIDEO_ID_10/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_10)
-```
-*Creating game-ready 3D assets from text prompts*
-
-**Video 11: Architectural Visualization**
-```markdown
-<!-- Replace VIDEO_ID_11 with your actual YouTube video ID -->
-[![Architecture Demo](https://img.youtube.com/vi/VIDEO_ID_11/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_11)
-```
-*Generating architectural elements and building components*
-
-**Video 12: Educational Content Creation**
-```markdown
-<!-- Replace VIDEO_ID_12 with your actual YouTube video ID -->
-[![Education Demo](https://img.youtube.com/vi/VIDEO_ID_12/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_12)
-```
 
 ## 📋 Prerequisites
 
@@ -178,6 +101,10 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
 - Git (for cloning repository)
 
 ## 🛠️ Installation & Setup
+
+### **Colab/ Kaggle run the Custom_Hunyuan.ipynb Notebook**(Kaggle recommended as colab memory management may lead to error)
+
+### **Local Inference**
 
 ### **1. Clone Repository**
 ```bash
