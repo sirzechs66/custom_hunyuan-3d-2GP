@@ -65,19 +65,14 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
 - **Generation History**: Compare multiple generations and trends
 - **Export Capabilities**: Save models in multiple formats (GLB, OBJ, PLY, STL)
 
-### **💻 GPU-Poor Optimization**
+### **💻 GPU-Poor Optimization - For low VRAM Users**
 - **Memory Management**: Intelligent VRAM usage and cleanup
 - **Model Offloading**: Automatic GPU memory optimization
 - **Batch Processing**: Efficient handling of multiple generations
 - **Low-VRAM Mode**: Special mode for 6GB+ GPUs
 
-## � Video Examples & Demonstrations
-
-### **📹 My Custom Video Demonstrations**
-
-*This section showcases real-world usage of the Hunyuan3D-2GP custom notebook:*
-
-#### **🚀 Generation Speed Tests**
+## � Gen Samples
+*This section showcases real-world usage
 
 **Video 1: Text-to-3D Generation in Under 30 Seconds**
 ```markdown
@@ -86,7 +81,7 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
 ```
 *Demonstrates real-time generation from text prompt to finished 3D model*
 
-**Video 2: Batch Generation Performance**
+**Video 2: **
 ```markdown
 <!-- Replace VIDEO_ID_2 with your actual YouTube video ID -->
 [![Batch Performance](https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_2)
@@ -167,24 +162,6 @@ A comprehensive Jupyter notebook implementation for **Hunyuan3D-2GP**, the state
 <!-- Replace VIDEO_ID_12 with your actual YouTube video ID -->
 [![Education Demo](https://img.youtube.com/vi/VIDEO_ID_12/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_12)
 ```
-*Creating 3D models for educational and teaching purposes*
-
-### **📝 How to Add Your Videos:**
-1. **Upload to YouTube**: Upload your videos to YouTube (recommended)
-2. **Get Video ID**: Copy the video ID from YouTube URL (`youtube.com/watch?v=VIDEO_ID`)
-3. **Replace Placeholders**: Replace `VIDEO_ID_X` with your actual video IDs
-4. **Custom Thumbnails**: YouTube thumbnails will automatically appear
-
-### **🎬 Alternative Video Hosting:**
-- **Direct Upload**: Use GitHub's native video upload (drag & drop in web editor)
-- **Vimeo**: Replace YouTube links with Vimeo embed codes
-- **GIFs**: Convert short clips to GIFs for inline display
-
-*Each video includes:*
-- Step-by-step instructions
-- Performance benchmarks
-- Quality comparisons
-- Practical tips and tricks
 
 ## 📋 Prerequisites
 
@@ -248,10 +225,6 @@ jupyter notebook custom-notebook-3d.ipynb
 ### **Example Prompts**
 ```
 "A cute cartoon cat sitting on a wooden chair"
-"Modern minimalist coffee table with glass top"
-"Ancient Greek marble statue of a warrior"
-"Futuristic sports car with sleek design"
-"Detailed medieval castle with towers and walls"
 ```
 
 ## 📊 Sample Results & Performance
@@ -344,8 +317,6 @@ This project is licensed under the **TENCENT HUNYUAN NON-COMMERCIAL LICENSE AGRE
 - ✅ **Research Use**: Freely available for academic research
 - ✅ **Educational Use**: Perfect for learning and teaching
 - ✅ **Personal Projects**: Great for hobbyists and creators
-- ❌ **Commercial Use**: Requires separate licensing agreement
-
 ## 🙏 Acknowledgments
 
 ### **Original Developers**
